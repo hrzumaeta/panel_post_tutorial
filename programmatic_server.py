@@ -64,11 +64,11 @@ class programmatic_server():
         base_command = '{'
         for i in range(0,len(objects)):
             if i < len(objects)-1:
-                adds = "'/"+str(filedir_name[i])+"': Application(FunctionHandler(partial(self.modify_doc,objects["+str(i)+"]))),"
-                base_command = base_command+adds
+                command = "'/"+str(filedir_name[i])+"': Application(FunctionHandler(partial(self.modify_doc,objects["+str(i)+"]))),"
+                base_command = base_command+command
             elif i==len(objects)-1:
-                adds = "'/"+str(filedir_name[i])+"': Application(FunctionHandler(partial(self.modify_doc,objects["+str(i)+"])))}"
-                base_command = base_command+adds
+                command = "'/"+str(filedir_name[i])+"': Application(FunctionHandler(partial(self.modify_doc,objects["+str(i)+"])))}"
+                base_command = base_command+command
     
         server = Server(applications=eval(base_command),
                         port=port_param,
